@@ -23,7 +23,6 @@ public class SqlRunner {
             System.exit(0);
         }
 
-        System.out.println("Opened database successfully");
         System.out.println();
 
     }
@@ -55,7 +54,6 @@ public class SqlRunner {
             System.err.println(e.getClass().getName() + ": " + e.getMessage());
             System.exit(0);
         }
-        System.out.println("Records created successfully");
         System.out.println();
         return id;
     }

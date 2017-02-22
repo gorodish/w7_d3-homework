@@ -25,6 +25,8 @@ public class Department {
     public void save() {
         String sql = String.format("INSERT INTO departments (title) VALUES ('%s');", this.title);
         this.id = SqlRunner.executeUpdate(sql);
+        System.out.println("Department save one query completed");
+
         SqlRunner.closeConnection();
     }
 
@@ -35,6 +37,8 @@ public class Department {
             while (rs.next()) {
                 String title = rs.getString("title");
                 System.out.println(title);
+                System.out.println("Department all one query completed");
+
                 System.out.println();
             }
         } catch (Exception e) {
@@ -52,7 +56,7 @@ public class Department {
             while (rs.next()) {
                 String title = rs.getString("title");
                 System.out.println("Department: " + title);
-                System.out.println("Query completed");
+                System.out.println("Department get details Query completed");
                 System.out.println();
             }
         } catch (Exception e) {
@@ -65,16 +69,22 @@ public class Department {
 
     public static void deleteAll() {
         String sql = "DELETE FROM departments;";
+        System.out.println("Department delete all query completed");
+
         SqlRunner.executeUpdate(sql);
     }
 
     public void deleteOne() {
         String sql = String.format("DELETE * FROM departments WHERE department.id = %d;", this.id);
+        System.out.println("Department delete one query completed");
+
         SqlRunner.executeUpdate(sql);
     }
 
     public void update() {
         String sql = String.format("UPDATE departments SET title = '%s' WHERE id = %d;", this.title, this.id);
+        System.out.println("Department update query completed");
+
         SqlRunner.executeUpdate(sql);
     }
 }
